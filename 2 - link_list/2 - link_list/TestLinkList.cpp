@@ -253,5 +253,5 @@ int main(void)
 		if (option == 0) break;
 	}
 
-	return 0;               // 返回值0, 返回操作系统
+	return 0;
 }
