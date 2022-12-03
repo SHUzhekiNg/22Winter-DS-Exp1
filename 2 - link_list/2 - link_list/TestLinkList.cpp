@@ -7,7 +7,7 @@ int numb,size;
 
 void menu()
 {
-	cout << "菜单：" << endl << "1:构造空链表" << '\t' << '\t' << "2:根据数组内容构造链表" << '\t';
+	cout << "二、单链表的验证：" << endl << "1:构造空链表" << '\t' << '\t' << "2:根据数组内容构造链表" << '\t';
 	cout << "3:删除链表" << endl << "4:获取链表长度\t\t";
 	cout << "5:判断链表是否为空" << '\t' << "6:清空链表" << endl;
 	cout << "7:访问链表中各个学生姓名" << '\t' << "8:定位元素" << '\t' << '\t' << '\t';
@@ -19,16 +19,19 @@ void menu()
 
 int main(void)
 {
+
 	int option;
-	menu();
-	while(cin >> option)
-	{
+	while( true )
+	{	
+		system("cls");
+		menu();
+
+		cin >> option;
 		if(option == 1)
 		{
 			build[num] = new LinkList();
 			cout << "构造完成，链表序号为：" << num << endl;
 			num++; 
-			menu();
 		}
 		if(option == 2)
 		{
@@ -52,26 +55,25 @@ int main(void)
 			build[num] = new LinkList(v, n);
 			cout << "构造完成，链表序号为：" << num << endl;
 			num++;
-			menu();
 		}
 		if (option == 3)
 		{
 			cout << "请输入您想要删除的链表序号：";
 			cin >> numb;
 			build[numb]->~LinkList();
-			menu();
 		}
 		if (option == 4)
 		{
 			cout << "请输入您想要获取长度的链表序号：";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			cout << build[numb]->GetLength() << endl;
-			menu();
 		}
 		if (option == 5)
 		{
 			cout << "请输入您想要判断的链表序号：";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			if (build[numb]->IsEmpty())
 			{
 				cout << "该链表为空";
@@ -79,49 +81,49 @@ int main(void)
 				cout << "该链表非空";
 			}
 			cout << endl;
-			menu();
 		}
 		if (option == 6)
 		{
 			cout << "请输入您想要清空的链表序号：";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			cout << build[numb]->GetLength() << endl;
-			menu();
 		}
 		if(option == 7)
 		{
 			cout << "请输入您想要遍历的链表:";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			build[numb]->Traverse(Write);
 			cout << endl;
-			menu();
 		}
 		if (option == 8)
 		{
 			cout << "请输入您想要查找的链表:";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			cout << "请输入您想要查找的学生学号：";
 			int e;
 			cin >> e;
 			build[numb]->LocateElem(e);
 			cout << endl;
-			menu();
 		}
 		if (option == 9)
 		{
 			cout << "请输入您想要使用的链表:";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			cout << "请输入元素的位置";
 			int e;
 			cin >> e;
 			build[numb]->GetElem(e);
 			cout << endl;
-			menu();
 		}
 		if (option == 10)
 		{
 			cout << "请输入您想要使用的链表:";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			cout << "请输入您想要修改的元素位置";
 			int e;
 			cin >> e;
@@ -138,12 +140,12 @@ int main(void)
 			cin >> p.phone;
 			build[numb]->SetElem(e, p);
 			cout << endl;
-			menu();
 		}
 		if (option == 11)
 		{
 			cout << "请输入您想要使用的链表:";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			cout << "请输入您想要删除的元素位置";
 			int e;
 			cin >> e;
@@ -155,12 +157,12 @@ int main(void)
 				cout << "失败";
 			}
 			cout << endl;
-			menu();
 		}
 		if (option == 12)
 		{
 			cout << "请输入您想要使用的链表:";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			cout << "请输入您想要插入的元素位置";
 			int e;
 			cin >> e;
@@ -184,12 +186,12 @@ int main(void)
 				cout << "失败";
 			}
 			cout << endl;
-			menu();
 		}
 		if (option == 13)
 		{
 			cout << "请输入您想要使用的链表:";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			Student p;
 			cout << "请输入学生姓名";
 			cin >> p.name;
@@ -210,7 +212,6 @@ int main(void)
 				cout << "失败";
 			}
 			cout << endl;
-			menu();
 		}
 		if (option == 14)
 		{
@@ -228,9 +229,9 @@ int main(void)
 			cin >> e->phone;
 			cout << "请输入链表序号：";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			build[numb]->SortInsert(e);
 			cout << endl;
-			menu();
 		}
 		if (option == 15)
 		{
@@ -240,17 +241,17 @@ int main(void)
 			build[num] = new LinkList();
 			build[num]->Merge(build[a], build[b]);
 			num++;
-			menu();
 		}
 		if (option == 16)
 		{
 			cout << "请输入链表序号：";
 			cin >> numb;
+			if(build[numb] == nullptr) { cout<<"链表不存在"<<endl; system("pause"); continue;}
 			build[numb]->Reversal();
 			cout << endl;
-			menu();
 		}
 		if (option == 0) break;
+		system("pause");
 	}
 
 	return 0;

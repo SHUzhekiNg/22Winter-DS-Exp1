@@ -44,6 +44,7 @@ public:
 	void SortInsert(Student *e);
 	void Reversal();
 	void Merge(LinkList *a,LinkList *b);
+	LinkList& operator[] (int index);
 
 private:
 	Student* head;
@@ -139,7 +140,11 @@ void LinkList::GetElem(int i) const
 		int count;
 		for (count = 1; count < i; count++)
 			p = p->next;
-		cout << "姓名：" << p->name << "学号：" << p->id << "性别：" << p->sex << "班级：" << p->Class << "电话：" << p->phone;
+		cout << "姓名：" << p->name << " "
+			<< "学号：" << p->id << " "
+			<< "性别：" << p->sex << " "
+			<< "班级：" << p->Class << " "
+			<< "电话：" << p->phone;
 	}
 	return;
 }
@@ -367,6 +372,11 @@ void LinkList::Merge(LinkList *a,LinkList *b)
 			t = t->next;
 		}
 	}
+}
+inline LinkList& LinkList::operator[](int index)
+{
+	assert(index < 0 || index > length-1);
+	return *this;
 }
 #endif
 
