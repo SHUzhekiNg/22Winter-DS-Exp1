@@ -1,19 +1,19 @@
-#include "LinkList.h"		// 单链表类
+#include "LinkList.h"
+LinkList<int> L;
 
 int main()
 {
-    LinkList<int> L;
-    while (1)
+    while (true)
     {
         int n;
-        cout<<"请选择您要进行的操作："<<endl;
+        cout<<"三、不带头节点的单循环链表类模板："<<endl;
         cout<<"1.求单链表长度"<<endl<<"2.判断单链表是否为空"<<endl;
         cout<<"3.将单链表清空"<<endl<<"4.遍历单链表并输入所有元素"<<endl;
         cout<<"5.元素定位，求指定元素在顺序表中的位置"<<endl;
         cout<<"6.求指定位置的元素"<<endl<<"7.设置指定位置的元素值"<<endl;
         cout<<"8.删除单链表的第i个位置的元素"<<endl<<"9.在指定位置插入元素"<<endl;
         cout<<"10.在单链表的表尾位置插入元素"<<endl<<"11.将链表中元素结点进行逆置"<<endl;
-        cout<<"12.退出"<<endl;
+        cout<<"0.退出"<<endl;
         cin>>n;
         switch (n)
         {
@@ -27,13 +27,9 @@ int main()
             {
                 //判断单链表是否为空
                 if (L.IsEmpty())
-                {
                     cout<<"目前顺序表为空"<<endl;
-                }
                 else
-                {
                     cout<<"目前单链表不为空"<<endl;
-                }
                 break;
             }
             case 3:
@@ -73,9 +69,7 @@ int main()
                 cin>>location;
                 result=L.GetElem(location,Data);
                 if (result==RANGE_ERROR)
-                {
                     cout<<"不存在序号为"<<location<<"的元素"<<endl;
-                }
                 else
                     cout<<"序号为"<<location<<"的元素为"<<Data<<endl;
                 break;
@@ -107,13 +101,9 @@ int main()
                 Status result;
                 result =L.DeleteElem(location,Data);
                 if (result==RANGE_ERROR)
-                {
                     cout<<"序号输入有误，设置失败"<<endl;
-                }
                 else
-                {
                     cout<<"已经删除序号为"<<location<<"的元素："<<Data<<endl;
-                }
                 break;
             }
             case 9:
@@ -155,9 +145,8 @@ int main()
                 L.Traverse(Write);
                 break;
             }
-            case 12:
+            case 0:
             {
-                //退出
                 return 0;
             }
         }
