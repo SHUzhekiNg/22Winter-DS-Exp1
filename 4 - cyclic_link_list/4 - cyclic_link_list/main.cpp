@@ -3,7 +3,7 @@ LinkList<int> L;
 
 int main()
 {
-    while (true)
+    while (1)
     {
         int n;
         cout<<"三、不带头节点的单循环链表类模板："<<endl;
