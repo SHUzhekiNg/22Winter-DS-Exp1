@@ -9,7 +9,7 @@ class LinkList
 {
 public:
     LinkList();
-    LinkList(int n);
+    LinkList(int n1);
     virtual ~LinkList();
     int GetLength() const;
     void Traverse(void (*Visit)(const ElemType&)) const;
@@ -33,7 +33,7 @@ LinkList<ElemType>::LinkList()
 }
 
 template <class ElemType>
-LinkList<ElemType>::LinkList(int n)
+LinkList<ElemType>::LinkList(int n1)
 {
     Node<ElemType>* p;
     p = head = new Node<ElemType>(1,NULL);
